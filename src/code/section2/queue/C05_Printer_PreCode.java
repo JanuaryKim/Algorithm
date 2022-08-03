@@ -1,19 +1,17 @@
-package code.queue;
+package code.section2.queue;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class B05 {
+public class C05_Printer_PreCode {
+
     public static void main(String[] args) {
-//        int bufferSize = 2;
-//        int capacities = 10;
-//        int[] documents = new int[]{7, 4, 5, 6};
         int bufferSize = 2;
-        int capacities = 7;
+        int capacities = 10;
         int[] documents = new int[]{7, 4, 5, 6};
 
-        System.out.println(queuePrinter(bufferSize, capacities, documents));
+        int output = queuePrinter(bufferSize, capacities, documents);
+        System.out.println(output);// 8
     }
 
     public static int queuePrinter(int bufferSize, int capacities, int[] documents) {
@@ -38,11 +36,14 @@ public class B05 {
                     continue; //처리할 문서가 추가 됬을 경우 반복문의 조건으로 이동하여 시간 증가 시키기 위함
                 }
             }
+
+
             printQueue.offer(0); //처리 문서를 추가하지 못한 경우 임의의 처리(빈처리) 추가
 
             if(printQueue.stream().mapToInt(i->i).sum() == 0) //출력큐에 진짜 처리할 문서가 존재하지 않을 경우 (해당 조건이 존재하지 않을 경우 무한 루프에 빠짐)
                 break;
         }
         return time;
+
     }
 }

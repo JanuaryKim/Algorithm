@@ -1,27 +1,61 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
+import java.util.stream.Stream;
 
 public class JustPractice {
     public static void main(String[] args) {
-        String str = "D";
-        Stack<Integer> ss = new Stack<>();
-
-
-
-        final String REGEX = "[A-Z]+";
-        if(!str.matches(REGEX))
-            System.out.println("불일치");
+        // TODO:
+        System.out.println(letterCapitalize("i  can doit!"));
+        System.out.println(letterCapitalize("I  canDDit!"));
+        String result3 = letterCapitalize("    ");
+        System.out.println();
 
     }
 
-    public static String reverseStr(String str) {
+    public static String letterCapitalize(String str) {
+        // TODO:
 
-        if(str.length() == 0)
-            return "";
+        Stream<Character> characterStream = str.chars()
+                .mapToObj(c -> (char) c);
 
-        String mainStr = Character.toString(str.charAt(str.length() - 1));
-        String subStr = str.substring(0,str.length()-1);
-        return mainStr + reverseStr(subStr);
+        if(characterStream.filter(c->!c.equals(' ')).count() == 0) return "";
+
+
+//        System.out.println("=======");
+//        char[] hh =str.toCharArray();
+//        for (int i = 0; i < hh.length; i++) {
+//            if(hh[i].equas)
+//                System.out.println("찾음");
+//        }
+//        char a = 'd';
+//        hh.
+//        System.out.println(Stream.of(str.toCharArray()).filter(c-> !c.equals(' ')).count());
+//
+//        if(Arrays.stream(str.toCharArray()).filter(c-> !c.).count() == 0) return "";
+
+        boolean firstChar = true;
+
+        StringBuilder sb = new StringBuilder(str);
+
+        for(int i = 0; i < sb.length(); i++)
+        {
+            if (sb.charAt(i) == ' ') {
+                firstChar = true;
+            }
+            else { //문자 발견
+                if(firstChar) //첫글자일때
+                {
+                    if(sb.charAt(i) >= 'a' && sb.charAt(i) <= 'z')
+                    {
+                        int chIdx = (int) sb.charAt(i) - 'a';
+                        sb.setCharAt(i, (char) ('A' + chIdx));
+
+                    }
+                    firstChar = false;
+                }
+            }
+        }
+        return sb.toString();
     }
 }

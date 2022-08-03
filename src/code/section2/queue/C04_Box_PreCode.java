@@ -1,14 +1,13 @@
-package code.queue;
+package code.section2.queue;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
-public class C04 {
+public class C04_Box_PreCode {
 
     public static void main(String[] args) {
-        System.out.println(paveBox(new Integer[]{5, 1, 4, 6}));
+            System.out.println(paveBox(new Integer[]{5, 1, 4, 6}));
     }
 
     public static int paveBox(Integer[] boxes) {

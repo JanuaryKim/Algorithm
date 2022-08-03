@@ -1,9 +1,9 @@
-package code.queue;
+package code.section2.queue;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class B03 {
+public class C03 {
     public static void main(String[] args) {
         System.out.println(browserStack(new String[]{"B", "C", "-1", "D", "A", "-1", "1", "-1", "-1"}, "A"));
         System.out.println(browserStack(new String[]{"B", "-1", "B", "A", "C", "-1", "-1", "D", "-1", "1", "E", "-1", "-1", "1"}, "A"));
